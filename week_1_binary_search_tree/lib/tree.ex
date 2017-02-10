@@ -25,7 +25,7 @@ defmodule Tree do
   end
 
   def search(%{key: key, value: value}, key) do
-    value
+    {:ok, value}
   end
 
   def search(tree = %{key: node_key}, key) when key > node_key do

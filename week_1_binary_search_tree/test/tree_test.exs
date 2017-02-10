@@ -7,7 +7,7 @@ defmodule TreeTest do
       tree = Tree.new
         |> Tree.insert(1, "foo")
 
-      assert(Tree.search(tree, 1) == "foo")
+      assert(Tree.search(tree, 1) == {:ok, "foo"})
     end
 
     test "inserting many elements" do
@@ -17,10 +17,10 @@ defmodule TreeTest do
         |> Tree.insert(3, "baz")
         |> Tree.insert(4, "qux")
 
-      assert(Tree.search(tree, 1) == "foo")
-      assert(Tree.search(tree, 2) == "bar")
-      assert(Tree.search(tree, 3) == "baz")
-      assert(Tree.search(tree, 4) == "qux")
+      assert(Tree.search(tree, 1) == {:ok, "foo"})
+      assert(Tree.search(tree, 2) == {:ok, "bar"})
+      assert(Tree.search(tree, 3) == {:ok, "baz"})
+      assert(Tree.search(tree, 4) == {:ok, "qux"})
     end
   end
 
@@ -29,7 +29,7 @@ defmodule TreeTest do
       tree = Tree.new
         |> Tree.insert(1, "foo")
 
-      assert(Tree.search(tree, 1) == "foo")
+      assert(Tree.search(tree, 1) == {:ok, "foo"})
     end
 
     test "when the element does not exist" do
